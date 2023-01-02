@@ -55,7 +55,7 @@ with open('C:\\Users\\Hp\\Documents\\Git\\Add Participants\\file.csv', 'r') as f
 
 # email.send_keys(Keys.ENTER)
 
-wait = 30
+wait = 15
 for i in range(wait):
     print(wait - i, end=", ")
     sleep(2)
