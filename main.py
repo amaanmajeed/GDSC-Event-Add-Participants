@@ -58,9 +58,9 @@ while True:
                 email = driver.find_element(By.NAME, 'email')
                 email.send_keys(row[2])
 
-                checkinbtn = driver.find_element(
-                    By.XPATH, '//*[@id="overlay-container"]/div/div/div[2]/form/div/div[4]/div/label/span[1]/span[1]/input')
-                checkinbtn.click()
+                # checkinbtn = driver.find_element(
+                #     By.XPATH, '//*[@id="overlay-container"]/div/div/div[2]/form/div/div[4]/div/label/span[1]/span[1]/input')
+                # checkinbtn.click()
 
                 sleep(0.5)
                 cancel_btn = driver.find_element(

@@ -24,7 +24,13 @@ To use the Attendance Tool, you will need the following:
 ## FAQs
 - Sometimes, it opens up in another window: try closing all chrome tabs, and open the one you want it to run on.
 - Other times, the link wouldn't redirect to your page: make sure to close all the chrome tabs before opening the script.
-- 
+
+## Feature Update
+- Uncomment line 64 - 66 if you want the bot to add Checkin of that particular attendee
+- If the email existes already, it cancels and skips that name.
+- continues from 1 plus incorrect entry
+- If for whatever reason, the system fails, or delays because of bad internet. The Bot would cater for it.
+
 
 ## Usage
 
