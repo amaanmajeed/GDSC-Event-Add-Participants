@@ -37,7 +37,7 @@ while True:
                 if (currentcount != headcount):
                     currentcount = currentcount + 1
                     continue
-                
+
                 if (row[0] == ""):
                     row[0] = "M"        # if entry is blank, replace it with M
                 if (row[1] == ""):
@@ -72,14 +72,15 @@ while True:
                 sleep(3)
                 print("First Name: " + str(row[0]) + "   Last Name: " + str(row[1]) + "   Head Counter: " + str(headcount) +
                       "   Current Counter: " + str(currentcount))
-                
+
                 currentcount = currentcount + 1
                 headcount = headcount + 1
 
     except:
         print("Error Occured")
         try:
-            cancel_btn = driver.find_element(By.XPATH, '//*[@id="overlay-container"]/div/div/div[2]/form/div/div[7]/div/div[1]/button')
+            cancel_btn = driver.find_element(
+                By.XPATH, '//*[@id="overlay-container"]/div/div/div[2]/form/div/div[7]/div/div[1]/button')
             cancel_btn.click()
         finally:
             sleep(1)
