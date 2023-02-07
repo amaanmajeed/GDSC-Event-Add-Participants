@@ -13,17 +13,25 @@ options = webdriver.ChromeOptions()
 
 profile = "C:\\Users\\Hp\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1"
 options.add_argument(f"user-data-dir={profile}")
+options.add_argument("--disable-blink-features=AutomationControlled")
 
 driver = webdriver.Chrome(options=options, use_subporcess=True)
 # add link here
-driver.get("add your link here,which has the add Attendee button")
+driver.get(
+    "https://gdsc.community.dev/accounts/dashboard/#/chapter-1857/event-47909/manage")
 print("Opened link")
 
-wait = 6
-for i in range(wait):
-    print(wait - i, end=", ")
-    sleep(2)
-print('\n')
+count = 0
+while True:
+    try:
+        search = driver.find_element(
+            By.XPATH, '//*[@id="react-main-dashboard-root"]/div/div[3]/div/div/div[2]/div/div/div[2]/div/div[1]/div/div[2]/div/div[2]/button')
+    except:
+        count = count + 2
+        print(count)
+        sleep(2)
+        continue
+    break
 
 currentcount = 0
 headcount = 0
@@ -31,7 +39,7 @@ headcount = 0
 while True:
     try:
         # Change name of file here, and put in the same folder
-        with open('C:\\Users\\Hp\\Documents\\Git\\Add Participants\\file.csv', 'r') as f:
+        with open('C:\\Users\\Hp\\Documents\\Git\\Add Participants\\blockchain.csv', 'r') as f:
             reader = csv.reader(f)
             for row in reader:
                 if (currentcount != headcount):
@@ -58,26 +66,26 @@ while True:
                 email = driver.find_element(By.NAME, 'email')
                 email.send_keys(row[2])
 
-                # checkinbtn = driver.find_element(
-                #     By.XPATH, '//*[@id="overlay-container"]/div/div/div[2]/form/div/div[4]/div/label/span[1]/span[1]/input')
-                # checkinbtn.click()
+                checkinbtn = driver.find_element(
+                    By.XPATH, '//*[@id="overlay-container"]/div/div/div[2]/form/div/div[4]/div/label/span[1]/span[1]/input')
+                checkinbtn.click()
 
                 sleep(0.5)
-                cancel_btn = driver.find_element(
-                    By.XPATH, '//*[@id="overlay-container"]/div/div/div[2]/form/div/div[7]/div/div[1]/button').click()
+                # cancel_btn = driver.find_element(
+                #     By.XPATH, '//*[@id="overlay-container"]/div/div/div[2]/form/div/div[7]/div/div[1]/button').click()
 
-                # send_btn = driver.find_element(
-                #     By.XPATH, '//*[@id="overlay-container"]/div/div/div[2]/form/div/div[7]/div/div[2]/div/button').click()
+                send_btn = driver.find_element(
+                    By.XPATH, '//*[@id="overlay-container"]/div/div/div[2]/form/div/div[7]/div/div[2]/div/button').click()
 
                 sleep(3)
-                print("First Name: " + str(row[0]) + "   Last Name: " + str(row[1]) + "   Head Counter: " + str(headcount) +
-                      "   Current Counter: " + str(currentcount))
+                print(str(headcount + 1) + ". " +
+                      str(row[0]) + " " + str(row[1]) + "\t        Email: " + str(row[2]))
 
                 currentcount = currentcount + 1
                 headcount = headcount + 1
 
     except:
-        print("Error Occured")
+        print("-----Entry Already present-----")
         try:
             cancel_btn = driver.find_element(
                 By.XPATH, '//*[@id="overlay-container"]/div/div/div[2]/form/div/div[7]/div/div[1]/button')
