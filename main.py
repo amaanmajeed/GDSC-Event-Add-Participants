@@ -1,24 +1,31 @@
 import undetected_chromedriver as webdriver
-from selenium.webdriver.common.by import By  # for xpath
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
+from selenium import webdriver
+from selenium.webdriver.common.by import By  # for xpath
+from selenium.webdriver.chrome.options import Options  # stop closing
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 import csv
+import subprocess
+
+chrome_path = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+remote_debugging_port = "5454"
+user_data_dir = "D:\GDSC\Resources\Zselenium\chromedriver.exe"
+
+cmd = [chrome_path, "--remote-debugging-port=" + remote_debugging_port, "--user-data-dir=" + user_data_dir]
+subprocess.Popen(cmd)
 
 
-# C:\Program Files\Google\Chrome\Application
-# chrome.exe --remote-debugging-port=8989 --user-data-dir="D:\GDSC\Resources\Zselenium\chromedriver.exe
-
-options = webdriver.ChromeOptions()
-
-profile = "C:\\Users\\Hp\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1"
-options.add_argument(f"user-data-dir={profile}")
-options.add_argument("--disable-blink-features=AutomationControlled")
-
-driver = webdriver.Chrome(options=options, use_subporcess=True)
-# add link here
+chrome_options = Options()
+chrome_options.add_experimental_option("debuggerAddress", "localhost:5454")
+driver = webdriver.Chrome(options=chrome_options)  # open chrome
+driver.implicitly_wait(10)
 driver.get(
-    "https://gdsc.community.dev/accounts/dashboard/#/chapter-1857/event-47909/manage")
+    "https://gdsc.community.dev/accounts/dashboard/#/chapter-1857/event-43801/manage")
 print("Opened link")
 
 count = 0
@@ -85,7 +92,7 @@ while True:
                 headcount = headcount + 1
 
     except:
-        print("-----Entry Already present-----")
+        print("Error: -----Entry Already present-----")
         try:
             cancel_btn = driver.find_element(
                 By.XPATH, '//*[@id="overlay-container"]/div/div/div[2]/form/div/div[7]/div/div[1]/button')
