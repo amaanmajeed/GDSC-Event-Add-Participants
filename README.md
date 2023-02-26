@@ -16,6 +16,11 @@ https://user-images.githubusercontent.com/99554708/210218861-d57c2c5d-d534-4c0b-
 2. press the start menu and type chrome -> Right Click and Open File Location.
 3. This would open the shortcut of Chrome, Right Click again and then you will have the path.
 4. Copy the link address from the file manager and paste it into `chrome_path`.
+5. Install python packages
+```bash
+pip install undetected-chromedriver
+pip install selenium
+```
 
 
 ## Setup
