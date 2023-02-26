@@ -11,6 +11,13 @@ https://user-images.githubusercontent.com/99554708/210218861-d57c2c5d-d534-4c0b-
 
 
 
+## Initialize
+1. Download Chrome Driver [here](https://chromedriver.chromium.org/downloads), and paste its link from the address bar to `user_data_dir`
+2. press the start menu and type chrome -> Right Click and Open File Location.
+3. This would open the shortcut of Chrome, Right Click again and then you will have the path.
+4. Copy the link address from the file manager and paste it into `chrome_path`.
+
+
 ## Setup
 
 To use the Attendance Tool, you will need the following:
@@ -21,7 +28,7 @@ To use the Attendance Tool, you will need the following:
 
 ## Feature Update
 - Fixed the issue "Browser not working" issue
-- Uncomment lines 64 - 66 if you want the bot to add Checkin of that particular attendee
+- Uncomment lines 64 - 66 if you want the bot to add the Check-in of that particular attendee
 - If the email exists already, it cancels and skips that name
 - continues from 1 plus incorrect entry
 - If for whatever reason, the system fails, or delays is because of bad internet. The Bot would cater to it
