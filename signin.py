@@ -1,15 +1,3 @@
-import undetected_chromedriver as webdriver
-from selenium.webdriver import ActionChains
-from selenium.webdriver.common.keys import Keys
-from selenium import webdriver
-from selenium.webdriver.common.by import By  # for xpath
-from selenium.webdriver.chrome.options import Options  # stop closing
-from selenium.webdriver import ActionChains
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from time import sleep
-import csv
 import subprocess
 
 chrome_path = "C:\Program Files\Google\Chrome\Application\chrome.exe"
