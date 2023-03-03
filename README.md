@@ -12,16 +12,11 @@ https://user-images.githubusercontent.com/99554708/210218861-d57c2c5d-d534-4c0b-
 
 
 ## Initialize
-1. Download Chrome Driver [here](https://chromedriver.chromium.org/downloads), and paste its link from the address bar to `user_data_dir`
-2. press the start menu and type chrome -> Right Click and Open File Location.
+1. Download Chrome Driver [here](https://drive.google.com/open?id=1EFDOeevz24TXDT88YFl5WKJo_TeLCaBB&authuser=f2020266286%40umt.edu.pk&usp=drive_fs) NOTE: 800mb, and add it to `C:\Program Files`.
+2. Press the start menu and type chrome -> Right Click and Open File Location.
 3. This would open the shortcut of Chrome, Right Click again and then you will have the path.
 4. Copy the link address from the file manager and paste it into `chrome_path`.
-5. Install python packages
-```bash
-pip install undetected-chromedriver
-pip install selenium
-```
-
+5. Open the `setup.py` file and sign in if not already.
 
 ## Setup
 
